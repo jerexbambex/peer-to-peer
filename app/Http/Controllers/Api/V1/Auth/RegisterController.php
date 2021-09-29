@@ -11,19 +11,16 @@ use Illuminate\Validation\Rules;
 
 class RegisterController extends Controller
 {
-    public function store(Request $request):JsonResponse
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'type' => 'required',
             'password' => ['required', 'confirmed', Rules\Password::min(8)],
         ]);
 
         $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
