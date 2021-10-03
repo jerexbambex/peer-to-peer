@@ -21,6 +21,6 @@ class UserWalletController extends Controller
 
         $request->user()->deposit($request->amount);
 
-        return $this->myJson("Success", "{$request->amount} added Successfully", "202");
+        return $this->myJson("Success", "{$request->amount} added Successfully", "202", new WalletResource(request()->user()));
     }
 }
