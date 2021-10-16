@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\LiveRateController;
 use App\Http\Controllers\Api\V1\User\UserWalletController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,8 @@ Route::prefix('/v1')->group(function(){
         });
 
     });
+
+    Route::get('/live-rates', [LiveRateController::class, 'index']);
 });
 
 
