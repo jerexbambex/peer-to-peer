@@ -37,6 +37,7 @@ Route::prefix('/v1')->group(function(){
     });
 
     Route::get('/live-rates', [LiveRateController::class, 'index']);
+    Route::get('/live-rates/{id}', [LiveRateController::class, 'show']);
 });
 
 

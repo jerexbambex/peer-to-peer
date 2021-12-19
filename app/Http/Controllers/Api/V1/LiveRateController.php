@@ -12,6 +12,14 @@ class LiveRateController extends Controller
 
     public function index()
     {
-        return $this->getLiveRate();
+        $result = $this->getLiveAssets();
+        return response($result, 200);
+    }
+
+    public function show($id)
+    {
+        $result = $this->getSingleAsset($id);
+
+        return response($result, 200);
     }
 }
